@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <nav><a href="index.html">BURGER PRIME</a></nav>
+
+    <main>
+        <div class="painel_Adm">
+            <h1 class="titulo_painel">Painel Administrativo</h1>
+            <p class="parag_painel">Gerencie o cardápio da hamburgueria</p>
+        </div>
+
+        <form class="form_cardapio">
+            <h1 class="titulo_cardapio">
+                <img src="../imgs/plus.png" alt="adicionar item no cardapio">
+                Adicionar Novo Item
+            </h1>
+            
+            <div class="items_cardapio">
+                <p class="items_paragrafo">Categoria </p>
+                <select name="" id="Categoria" class="items_input">
+                    <option value="hamburguer" id="hamburguer">🍔Hamburguer</option>
+                    <option value="bebidas" id="bebidas">🥤Bebidas</option>
+                </select>
+            </div>
+
+            <div class="items_cardapio">
+                <p class="items_paragrafo">Nome:</p>
+                <input type="text" id="Nome-item" class="items_input">
+            </div>
+
+            <div class="items_cardapio">
+                <p class="items_paragrafo">Descrição:</p>
+                <input type="text" id="Nome-item" class="items_input">
+            </div>
+
+            <div class="items_cardapio">
+                <p class="items_paragrafo">Ingredientes * (separados por vírgula):</p>
+                <input type="text" id="Nome-item" class="items_input">
+            </div>
+
+            <div class="items_cardapio">
+                <p class="items_paragrafo">Preço (R$):</p>
+                <input type="text" id="Nome-item" class="items_input">
+            </div>
+
+            <button id="adicionr">ADICIONAR</button>
+        </form>
+    </main>
+    
+</body>
+</html>
