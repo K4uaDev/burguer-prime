@@ -1,7 +1,9 @@
 :root {
-    --cor-primaria: #1a1a1a; 
+    --cor-primaria: #F3ECE4; 
     --cor-secundaria: #ffdd57; 
-    --cor-texto-claro: #f5f5f5; 
+    --cor-terciaria: #CA3022;
+    --cor-texto: #333; 
+    --cor-painel: #FDFCFB;
 }
 
 * {
@@ -12,7 +14,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--cor-primaria);
+    background-image: url('../imgs/vitor-monthay-8DcjZWBPHb4-unsplash\ \(1\).jpg');
     color: var(--cor-texto-claro);
     display: flex;
     justify-content: center;
@@ -21,34 +23,43 @@ body {
 }
 
 .login-container {
-    background-color: #222222; 
+    background-color: #3333335d; 
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     text-align: center;
-    border-top: 5px solid var(--cor-secundaria);
+    border-top: 5px solid var(--cor-terciaria);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .logo {
     font-size: 2em;
     font-weight: 700;
-    color: var(--cor-secundaria);
+    color: var(--cor-terciaria);
     letter-spacing: 2px;
     margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 7px ;
+    text-align: center;
+    
 }
 
 .login-container h2 {
     font-size: 1.2em;
     margin-bottom: 30px;
-    color: var(--cor-texto-claro);
+    color: var(--cor-primaria);
     font-weight: 400;
 }
 
 .login-form {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .input-group {
@@ -60,14 +71,14 @@ body {
     display: block;
     margin-bottom: 5px;
     font-weight: 700;
-    color: var(--cor-secundaria);
+    color: var(--cor-primaria);
 }
 
 .input-group input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #444;
-    background-color: #333;
+    border: 2px solid var(--cor-secundaria);
+    background-color: transparent;
     color: var(--cor-texto-claro);
     border-radius: 4px;
     transition: border-color 0.3s;
@@ -75,31 +86,31 @@ body {
 }
 
 .input-group input:focus {
-    border-color: var(--cor-secundaria);
+    border-color: var(--cor-terciaria);
     outline: none;
 }
 
 .btn-login {
-    background-color: var(--cor-secundaria);
+    background-color: var(--cor-terciaria);
     color: var(--cor-primaria);
-    padding: 12px 20px;
     border: none;
+    padding: 12px 20px;
     border-radius: 4px;
     font-size: 1.1em;
     font-weight: 700;
     cursor: pointer;
     margin-top: 10px;
     transition: background-color 0.3s, transform 0.2s;
+    ;
 }
 
 .btn-login:hover {
-    background-color: #ffd700; 
     transform: translateY(-2px);
 }
 
 .back-link {
     margin-top: 25px;
-    color: #999;
+    color: var(--cor-primaria);
     text-decoration: none;
     font-size: 0.9em;
     transition: color 0.3s;

@@ -1,10 +1,11 @@
 :root {
-    --cor-primaria: #1a1a1a; 
-    --cor-secundaria: #ffdd57; 
-    --cor-painel: #222222; 
-    --cor-texto-claro: #f5f5f5; 
-    --cor-borda-input: #444; 
-    --cor-shadow: rgba(0, 0, 0, 0.4);
+    --cor-primaria: #F8F2EB; 
+    --cor-secundaria: #CD3528; 
+    --cor-painel: #FDFCFC; 
+    --cor-texto-claro: #9e8873;
+    --cor-texto-escuro: #444;
+    --cor-borda-input: #999; 
+
 }
 
 * {
@@ -16,14 +17,14 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--cor-primaria);
-    color: var(--cor-texto-claro);
-    min-height: 100vh;
+    color: var(--cor-texto-escuro);
+
 }
 
 nav {
-    background-color: #000; 
+    background-color: var(--cor-painel); 
     padding: 15px 5%;
-    border-bottom: 3px solid var(--cor-secundaria);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 nav a {
@@ -31,42 +32,58 @@ nav a {
     font-weight: 700;
     color: var(--cor-secundaria);
     letter-spacing: 2px;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #ffd700; 
-}
-
-main {
-    padding: 30px 5%;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    text-decoration: none;
+    gap: 6px;
+
+}
+   
+.painel_adm_container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 40px 0;
 }
 
 .painel_Adm {
     width: 100%;
     max-width: 600px;
     background-color: var(--cor-painel);
-    padding: 30px;
-    border-radius: 8px;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 15px var(--cor-shadow);
+    border-radius: 8px;    
+    border: 1px solid #E0D9D9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+}
+
+.descricao_item_cardapio {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 2px solid #777;
+    padding-bottom: 15px;
+    width: 100%;
+}
+.descricao_titulo_painel {
     text-align: center;
-    border: 1px solid #333;
+    margin: 30px 0;
+    font-size: larger;
 }
 
 .titulo_painel { 
-    font-size: 2em;
+    font-size: 2.5em;
+    font-weight: 600;
     color: var(--cor-secundaria);
     margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 .parag_painel {
     font-size: 1.1em;
-    color: #bbb;
+    color: var(--cor-texto-claro);
+    margin-bottom: 70px;
 }
 
 .form_cardapio {
@@ -75,17 +92,16 @@ main {
     border-radius: 8px;
     width: 100%;
     max-width: 600px;
-    box-shadow: 0 4px 15px var(--cor-shadow);
-    border: 1px solid #333;
+    border: 1px solid #E0D9D9;
 }
 
 .titulo_cardapio {
     font-size: 1.5em;
-    color: var(--cor-texto-claro);
+    color: var(--cor-texto-escuro);
     margin-bottom: 30px;
     display: flex;
     align-items: center;
-    border-bottom: 1px dashed #333;
+    border-bottom: 2px solid #777;
     padding-bottom: 15px;
 }
 
@@ -93,7 +109,7 @@ main {
     width: 24px;
     height: 24px;
     margin-right: 10px;
-    filter: invert(70%) sepia(80%) saturate(2000%) hue-rotate(15deg); /* Para deixar o ícone dourado */
+   
 }
 
 .items_cardapio {
@@ -103,14 +119,14 @@ main {
 .items_paragrafo {
     font-weight: 700;
     margin-bottom: 5px;
-    color: var(--cor-secundaria);
+    color: var(--cor-texto-escuro);
 }
 
 .items_input {
     width: 100%;
     padding: 10px;
     border: 1px solid var(--cor-borda-input);
-    background-color: #333;
+    background-color: #eeeeee;
     color: var(--cor-texto-claro);
     border-radius: 4px;
     font-size: 1em;
@@ -127,7 +143,7 @@ select.items_input {
     cursor: pointer;
 }
 
-#adicionr {
+#adicionar {
     background-color: var(--cor-secundaria);
     color: var(--cor-primaria);
     padding: 12px 20px;
@@ -139,9 +155,4 @@ select.items_input {
     margin-top: 20px;
     width: 100%;
     transition: transform 0.2s, background-color 0.3s;
-}
-
-#adicionr:hover {
-    background-color: #ffd700;
-    transform: translateY(-2px);
 }

@@ -5,53 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link rel="stylesheet" href="../css/admin.css">
+    <script src="../js/script.js" defer></script>
 </head>
 <body>
-    <nav><a href="index.html">BURGER PRIME</a></nav>
+    <nav><a href="index.html" class="link_logo_admin">
+        <img src="../imgs/cook-hat.png" alt="imagem da logo">
+        BURGER PRIME</a></nav>
 
     <main>
-        <div class="painel_Adm">
+        <div class="descricao_titulo_painel">
             <h1 class="titulo_painel">Painel Administrativo</h1>
             <p class="parag_painel">Gerencie o cardápio da hamburgueria</p>
         </div>
-
-        <form class="form_cardapio">
-            <h1 class="titulo_cardapio">
-                <img src="../imgs/plus.png" alt="adicionar item no cardapio">
-                Adicionar Novo Item
-            </h1>
+        <section class="painel_adm_container">
             
-            <div class="items_cardapio">
-                <p class="items_paragrafo">Categoria </p>
-                <select name="" id="Categoria" class="items_input">
-                    <option value="hamburguer" id="hamburguer">🍔Hamburguer</option>
-                    <option value="bebidas" id="bebidas">🥤Bebidas</option>
-                </select>
+            <form class="form_cardapio">
+                <h1 class="titulo_cardapio">
+                    <img src="../imgs/plus.png" alt="adicionar item no cardapio">
+                    Adicionar Novo Item
+                </h1>
+            
+                <div class="items_cardapio">
+                    <p class="items_paragrafo">Categoria </p>
+                    <select name="" id="Categoria" class="items_input">
+                        <option value="hamburguer" id="hamburguer">🍔Hamburguer</option>
+                        <option value="bebidas" id="bebidas">🥤Bebidas</option>
+                    </select>
+                </div>
+                <div class="items_cardapio">
+                    <p class="items_paragrafo">Nome:</p>
+                    <input type="text" id="nome-item" class="items_input">
+                </div>
+                <div class="items_cardapio">
+                    <p class="items_paragrafo">Descrição:</p>
+                    <input type="text" id="descrição-item" class="items_input">
+                </div>
+                <div class="items_cardapio">
+                    <p class="items_paragrafo">Ingredientes * (separados por vírgula):</p>
+                    <input type="text" id="ingredientes-item" class="items_input">
+                </div>
+                <div class="items_cardapio">
+                    <p class="items_paragrafo">Preço (R$):</p>
+                    <input type="text" id="preco-item" class="items_input">
+                </div>
+                <button id="adicionar">ADICIONAR</button>
+            </form>
+            <div class="painel_Adm">
+                <h2 class="descricao_item_cardapio">
+                    <img src="../imgs/caixa.png" alt="imagem de itens">
+                    Itens do Cardápio
+                </h2>
             </div>
-
-            <div class="items_cardapio">
-                <p class="items_paragrafo">Nome:</p>
-                <input type="text" id="Nome-item" class="items_input">
-            </div>
-
-            <div class="items_cardapio">
-                <p class="items_paragrafo">Descrição:</p>
-                <input type="text" id="Nome-item" class="items_input">
-            </div>
-
-            <div class="items_cardapio">
-                <p class="items_paragrafo">Ingredientes * (separados por vírgula):</p>
-                <input type="text" id="Nome-item" class="items_input">
-            </div>
-
-            <div class="items_cardapio">
-                <p class="items_paragrafo">Preço (R$):</p>
-                <input type="text" id="Nome-item" class="items_input">
-            </div>
-
-            <button id="adicionr">ADICIONAR</button>
-        </form>
+        </section>
     </main>
+
     
+
 </body>
 </html>
