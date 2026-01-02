@@ -83,7 +83,7 @@ body {
     padding: 10px;
     border: 2px solid var(--cor-secundaria);
     background-color: transparent;
-    color: var(--cor-texto-claro);
+    color: var(--cor-primaria);
     border-radius: 4px;
     transition: border-color 0.3s;
     font-size: 1em;

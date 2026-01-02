@@ -1,86 +1,136 @@
-// Itens do Hambúrguer
+// 1. Seleção de elementos
 const categoria = document.getElementById('Categoria');
-const NomeHamburguer = document.getElementById('nome-item');
-const descrição = document.getElementById('descrição-item');
+const NomeItem = document.getElementById('nome-item');
+const descricao = document.getElementById('descrição-item');
 const ingredientes = document.getElementById('ingredientes-item');
 const preco = document.getElementById('preco-item');
-// btn adicionar
 const btnAdicionar = document.getElementById('adicionar');
-// Cardápio admin 
-const cardapioAdmin = document.querySelector('.painel_Adm');
 
-class Hamburguer {
-    constructor(categoria, nome, descrição, ingredientes, preco) {  
-        this.categoria = categoria;
-        this.nome = nome;
-        this.descrição = descrição;
-        this.ingredientes = ingredientes;
-        this.preco = preco;
-    } 
-          
-    error(mensagem) {
-        alert(mensagem);
-        return;
-    }
+const cardapioAdmin = document.querySelector('.painel_Adm');
+const sectionHamburguer = document.querySelector('.hamburguer');
+const sectionBebidas = document.querySelector('.bebidas');
+
+// 2. Funções de Banco de Dados (LocalStorage)
+function obterItens() {
+    return JSON.parse(localStorage.getItem('meuCardapio')) || [];
 }
 
-btnAdicionar.addEventListener('click', function(e) { 
-    e.preventDefault();
+function salvarItens(lista) {
+    localStorage.setItem('meuCardapio', JSON.stringify(lista));
+}
 
-    if (NomeHamburguer.value.trim() === '' || descrição.value.trim() === '' || ingredientes.value.trim() === '' || preco.value.trim() === '') {
-        alert('Preencha todos os campos.');
-        return;
+// 3. Função para remover (Global para o onclick funcionar)
+window.removerItem = function(id) {
+    let itens = obterItens();
+    itens = itens.filter(item => item.id !== id);
+    salvarItens(itens);
+    renderizarTudo();
+};
+
+// 4. Função Principal de Renderização
+function renderizarTudo() {
+    const itens = obterItens();
+
+    // Limpeza das seções antes de desenhar
+    if (cardapioAdmin) {
+        const antigos = cardapioAdmin.querySelectorAll('.item-lista-admin');
+        antigos.forEach(el => el.remove());
+    }
+    if (sectionHamburguer) {
+        sectionHamburguer.innerHTML = '<h1 class="title_hamburguer">🍔Hambúrgueres Gourmet</h1>';
+    }
+    if (sectionBebidas) {
+        sectionBebidas.innerHTML = '<h1 class="title_bebidas">🥤Sucos & Drinks</h1>';
     }
 
-    const novoHamburguer = new Hamburguer(
-        categoria.value,
-        NomeHamburguer.value,
-        descrição.value,
-        ingredientes.value,
-        preco.value
-    );
+    // Loop para criar os itens
+    itens.forEach(item => {
+        // --- SE ESTIVER NO ADMIN ---
+        if (cardapioAdmin) {
+            const divAdmin = document.createElement('div');
+            divAdmin.classList.add('item-lista-admin');
+            
+            // Estilo igual ao seu original
+            Object.assign(divAdmin.style, {
+                backgroundColor: 'transparent',
+                padding: '15px',
+                borderRadius: '10px',
+                border: '1px solid #999',
+                textAlign: 'left',
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '8px',
+                marginTop: '20px',
+                position: 'relative'
+            });
 
-    const divCardapio = document.createElement('div');
-    Object.assign(divCardapio.style, {
-        backgroundColor: 'transparent',
-        padding: '10px',
-        borderRadius: '10px',
-        border: '1px solid #999',
-        textAlign: 'left',
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '8px',
-        marginTop: '20px',
-        position: 'relative'
+            divAdmin.innerHTML = `
+                <h2 style="color: #444; margin: 0; font-size: 1.5rem;">${item.nome}</h2>
+                <p style="color: #9e8873; margin: 0;">${item.descricao}</p>
+                <p style="background: #FAE5C6; width: fit-content; color: #111; border-radius: 5px; padding: 3px 8px; font-size: 14px; margin: 0;">
+                    ${item.ingredientes}
+                </p>
+                <h3 style="color: #CD3528; margin: 0;">R$ ${item.preco}</h3>
+                <img src="../imgs/bin.png" onclick="removerItem(${item.id})" style="position: absolute; cursor: pointer; right: 20px; top: 20px;" title="Remover">
+            `;
+            cardapioAdmin.appendChild(divAdmin);
+        }
+
+        // --- SE ESTIVER NO CARDÁPIO ---
+        if (sectionHamburguer || sectionBebidas) {
+            const divCardapio = document.createElement('div');
+            divCardapio.style.cssText = "border-bottom: 1px solid #444; padding: 15px; margin-bottom: 10px; color: white;";
+            
+            divCardapio.innerHTML = `
+                <h2 style="color: #444; margin: 0; font-size: 1.5rem;">${item.nome}</h2>
+                <p style="color: #8f7761ff; margin: 0; font-weight: 600;">${item.descricao}</p>
+                <p style="background: #FAE5C6; width: fit-content; color: #111; border-radius: 5px; padding: 3px 8px; font-size: 14px; margin: 0;">
+                    ${item.ingredientes}
+                </p>
+                <h3 style="color: #CD3528; margin: 0;">R$ ${item.preco}</h3>
+            `;
+
+            if (item.categoria === 'hamburguer' && sectionHamburguer) {
+                sectionHamburguer.appendChild(divCardapio);
+            } else if (item.categoria === 'bebidas' && sectionBebidas) {
+                sectionBebidas.appendChild(divCardapio);
+            }
+        }
     });
+}
 
-    divCardapio.innerHTML = `
-        <h2>${novoHamburguer.nome}</h2>
-        <p>${novoHamburguer.descrição}</p>
-        <p style="background: #FAE5C6; width: fit-content; color: #111; border-radius: 5px; padding: 3px;">
-            ${novoHamburguer.ingredientes}
-        </p>
-        <h3 style="color: #CD3528;">R$ ${novoHamburguer.preco}</h3>
-    `;
+// 5. Evento de Adicionar
+if (btnAdicionar) {
+    btnAdicionar.onclick = function(e) {
+        e.preventDefault();
 
-    const imgDelete = document.createElement('img');
-    imgDelete.src = '../imgs/bin.png';
-    imgDelete.style.position = 'absolute';
-    imgDelete.style.width = '40px';
-    imgDelete.style.cursor = 'pointer';
-    imgDelete.style.left = 'calc(100% - 60px)';
-    imgDelete.title = 'Remover item';
+        if (NomeItem.value.trim() === "" || preco.value.trim() === "") {
+            alert("Por favor, preencha o nome e o preço.");
+            return;
+        }
 
-    imgDelete.addEventListener('click', () => {
-        divCardapio.remove();
-    });
+        const novoItem = {
+            id: Date.now(),
+            categoria: categoria.value,
+            nome: NomeItem.value,
+            descricao: descricao.value,
+            ingredientes: ingredientes.value,
+            preco: preco.value
+        };
 
-    cardapioAdmin.appendChild(divCardapio);
-    divCardapio.appendChild(imgDelete);
+        const lista = obterItens();
+        lista.push(novoItem);
+        salvarItens(lista);
+        
+        // Limpa formulário e atualiza tela
+        NomeItem.value = '';
+        descricao.value = '';
+        ingredientes.value = '';
+        preco.value = '';
+        renderizarTudo();
+    };
+}
 
-    NomeHamburguer.value = '';
-    descrição.value = '';
-    ingredientes.value = '';
-    preco.value = '';
-});
+// 6. Carregamento inicial
+window.onload = renderizarTudo;
