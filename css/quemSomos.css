@@ -1,0 +1,141 @@
+:root {
+    --cor-fundo: #F3ECE4; 
+    --cor-primaria: #F8C659; 
+    --cor-secundaria: #FDFCFB; 
+    --cor-button: #CA3022;
+    --color-text: #222;
+    --cor-text-claro: #9e8873;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-text-claro);
+}
+header {
+    background-color: var(--cor-secundaria);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid var(--cor-secundaria);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.menu {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6em;
+}
+.logo {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: var(--cor-button);
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+}
+.admin-link {
+    color: var(--cor-button);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 8px 15px;
+    border: 1px solid var(--cor-button);
+    border-radius: 4px;
+}
+.admin-link:hover {
+    background-color: var(--cor-button);
+    color: var(--cor-secundaria);
+}
+.link-usuario {
+    color: var(--cor-button);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 8px 0px;
+    margin-right: 25px;
+}
+.link-usuario:hover {
+    border-bottom: 3px solid var(--cor-button);
+
+}
+.title_introducao {
+    text-align: center;
+    margin: 50px 0 10px 0;
+    font-size: 2.5em;
+    color: var(--color-text);
+}
+.parag_introducao {
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-text-claro);
+    
+    
+}
+.Nossa_historia {
+    display: flex;
+    justify-content: space-evenly;
+}
+.conteudo_historia {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px;
+    max-width: 600px;
+}
+.title_historia {
+    font-size: 1.7em;
+    color: var(--color-text);
+}
+.card_conteiner {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    gap: 10px;
+    background-color: var(--cor-secundaria);
+    border-radius: 8px;
+    width: 90%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+}
+
+.img_card {
+    background-color: var(--cor-button);
+    padding: 3px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.title_card {
+    color: var(--color-text);
+}
+.parag_card {
+    text-align: center;
+    color: var(--color-text-claro);
+}
+.section_cards {
+    display: flex;
+    gap: 30px;
+    padding-left: 40px;
+    max-width: 1200px;
+    justify-content: right;
+
+
+}

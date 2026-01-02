@@ -1,0 +1,108 @@
+:root {
+    --cor-fundo: #F3ECE4; 
+    --cor-primaria: #F8C659; 
+    --cor-secundaria: #FDFCFB; 
+    --cor-button: #CA3022;
+    --color-text: #222;
+    --cor-text-claro: #9e8873;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url('../imgs/vitor-monthay-8DcjZWBPHb4-unsplash\ \(1\).jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    color: var(--cor-text-claro);
+    height: 100vh;
+}
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.623); 
+    z-index: -1; 
+}
+header {
+    background-color: var(--cor-secundaria);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid var(--cor-secundaria);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+.menu {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6em;
+    z-index: 2;
+}
+.logo {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: var(--cor-button);
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+}
+.admin-link {
+    color: var(--cor-button);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 8px 15px;
+    border: 1px solid var(--cor-button);
+    border-radius: 4px;
+}
+.admin-link:hover {
+    background-color: var(--cor-button);
+    color: var(--cor-secundaria);
+}
+.link-usuario {
+    color: var(--cor-button);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 8px 0px;
+    margin-right: 25px;
+}
+.link-usuario:hover {
+    border-bottom: 3px solid var(--cor-button);
+
+}
+article {
+    margin: 60px 0;
+}
+.title_cardapio {
+    text-align: center;
+    font-size: 2.5em;
+    padding: 20px;
+    color: var(--cor-primaria);
+}
+.parag_cardapio {
+    color: var(--cor-secundaria);
+}
+
+.title_hamburguer, .title_bebidas {
+    color: var(--cor-fundo);
+}

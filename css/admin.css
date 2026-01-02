@@ -17,28 +17,41 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--cor-primaria);
-    color: var(--cor-texto-escuro);
-
-}
-
-nav {
-    background-color: var(--cor-painel); 
-    padding: 15px 5%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-nav a {
-    font-size: 1.5em;
-    font-weight: 700;
     color: var(--cor-secundaria);
-    letter-spacing: 2px;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    gap: 6px;
 
 }
-   
+
+header {
+  background-color: var(--cor-painel);
+  padding: 15px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.link-usuario {
+  color: var(--cor-secundaria);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 8px 0px;
+  margin-right: 25px;
+}
+.link-usuario:hover {
+  border-bottom: 3px solid var(--cor-secundaria);
+}
+.logo {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: var(--cor-button);
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
 .painel_adm_container {
     display: flex;
     justify-content: space-evenly;

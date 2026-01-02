@@ -16,7 +16,8 @@ class Hamburguer {
         this.descrição = descrição;
         this.ingredientes = ingredientes;
         this.preco = preco;
-    }       
+    } 
+          
     error(mensagem) {
         alert(mensagem);
         return;

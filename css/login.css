@@ -15,10 +15,14 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-image: url('../imgs/vitor-monthay-8DcjZWBPHb4-unsplash\ \(1\).jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
     color: var(--cor-texto-claro);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     min-height: 100vh;
 }
 
