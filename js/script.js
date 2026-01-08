@@ -1,4 +1,3 @@
-// 1. Seleção de elementos
 const categoria = document.getElementById('Categoria');
 const NomeItem = document.getElementById('nome-item');
 const descricao = document.getElementById('descrição-item');
@@ -10,7 +9,6 @@ const cardapioAdmin = document.querySelector('.painel_Adm');
 const sectionHamburguer = document.querySelector('.hamburguer');
 const sectionBebidas = document.querySelector('.bebidas');
 
-// 2. Funções de Banco de Dados (LocalStorage)
 function obterItens() {
     return JSON.parse(localStorage.getItem('meuCardapio')) || [];
 }
@@ -19,7 +17,7 @@ function salvarItens(lista) {
     localStorage.setItem('meuCardapio', JSON.stringify(lista));
 }
 
-// 3. Função para remover (Global para o onclick funcionar)
+
 window.removerItem = function(id) {
     let itens = obterItens();
     itens = itens.filter(item => item.id !== id);
@@ -27,11 +25,10 @@ window.removerItem = function(id) {
     renderizarTudo();
 };
 
-// 4. Função Principal de Renderização
+
 function renderizarTudo() {
     const itens = obterItens();
 
-    // Limpeza das seções antes de desenhar
     if (cardapioAdmin) {
         const antigos = cardapioAdmin.querySelectorAll('.item-lista-admin');
         antigos.forEach(el => el.remove());
@@ -43,14 +40,11 @@ function renderizarTudo() {
         sectionBebidas.innerHTML = '<h1 class="title_bebidas">🥤Sucos & Drinks</h1>';
     }
 
-    // Loop para criar os itens
     itens.forEach(item => {
-        // --- SE ESTIVER NO ADMIN ---
         if (cardapioAdmin) {
             const divAdmin = document.createElement('div');
             divAdmin.classList.add('item-lista-admin');
             
-            // Estilo igual ao seu original
             Object.assign(divAdmin.style, {
                 backgroundColor: 'transparent',
                 padding: '15px',
@@ -77,7 +71,6 @@ function renderizarTudo() {
             cardapioAdmin.appendChild(divAdmin);
         }
 
-        // --- SE ESTIVER NO CARDÁPIO ---
         if (sectionHamburguer || sectionBebidas) {
             const divCardapio = document.createElement('div');
             divCardapio.style.cssText = "border-bottom: 1px solid #444; padding: 15px; margin-bottom: 10px; color: white;";
@@ -100,7 +93,6 @@ function renderizarTudo() {
     });
 }
 
-// 5. Evento de Adicionar
 if (btnAdicionar) {
     btnAdicionar.onclick = function(e) {
         e.preventDefault();
@@ -123,7 +115,6 @@ if (btnAdicionar) {
         lista.push(novoItem);
         salvarItens(lista);
         
-        // Limpa formulário e atualiza tela
         NomeItem.value = '';
         descricao.value = '';
         ingredientes.value = '';
@@ -132,5 +123,4 @@ if (btnAdicionar) {
     };
 }
 
-// 6. Carregamento inicial
 window.onload = renderizarTudo;
